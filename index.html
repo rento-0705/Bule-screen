@@ -37,7 +37,13 @@
 </div>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-	      $(function(){
+     function play_se(){
+        // SEとバイブレーションの制御
+        navigator.vibrate([200, 100, 200, 100, 200, 100, 200]);
+      }
+
+
+      $(function(){
         // ブラウザバック禁止
         history.pushState(null, null, null);
         $(window).on("popstate", function(e){
@@ -46,7 +52,10 @@
             history.pushState(null, null, null);
             return;
           }
-                  $('.modal').modal({dismissible: false});
+        });
+
+        // モーダル初期化
+        $('.modal').modal({dismissible: false});
         $('#alert').modal('open');
         $('#close').click(function(){
           $('#alert').modal('close');
@@ -64,12 +73,7 @@
           time--;
           $('#timer').text(time);
         }, 1000);
-      });
-
-
-
-
-
+      });	
 </script>
 </body>
 </html>
